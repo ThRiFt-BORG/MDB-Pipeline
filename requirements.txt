@@ -1,0 +1,12 @@
+pandas>=2.0
+geopandas>=0.14
+pyarrow>=14.0
+shapely>=2.0
+matplotlib>=3.8
+seaborn>=0.13
+folium>=0.15
+contextily>=1.5
+pyproj>=3.6
+jupyter>=1.0
+pytest>=7.0
+numpy>=1.26

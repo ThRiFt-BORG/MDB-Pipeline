@@ -1,0 +1,16 @@
+Program,SamplePoint,Description,Latitude,Longitude,SampleDate,colonyStartDate,ColonyEndDate,evaluationCode,speciesCode,speciesName,areaColony,adultCountColonyTotal,nestCountColonyTotal,breedingSuccessRateColony,disturbanceColony,comment,survey_date,year,month,water_year
+Lachlan River System,BLBA,Lachlan River System>Blockbank,-33.78411,144.859176,2017-01-07 00:00:00,2017-01-07,2017-03-15,E1,180.0,Threskiornis spinicollis,9.0,16000,8000.0,64.38,,,2017-01-07,2017,1,2017
+Lachlan River System,BLBA,Lachlan River System>Blockbank,-33.78411,144.859176,2021-11-16 00:00:00,2021-10-14,2022-01-26,E1,180.0,Threskiornis spinicollis,10.8,88000,44000.0,75.0,low,,2021-11-16,2021,11,2022
+Murrumbidgee River,Eulimbah Swamp,Murrumbidgee River>,-34.559629,144.185472,2016-11-21 00:00:00,2016-11-21,2017-01-20,E1,180.0,Threskiornis spinicollis,25.0,630,315.0,59.44,,,2016-11-21,2016,11,2017
+Murrumbidgee River,Eulimbah Swamp,Murrumbidgee River>,-34.559629,144.185472,2016-11-21 00:00:00,2016-11-21,2017-01-20,E1,179.0,Threskiornis molucca,,40,20.0,,,,2016-11-21,2016,11,2017
+Murrumbidgee River,Eulimbah Swamp,Murrumbidgee River>,-34.559629,144.185472,2016-11-21 00:00:00,2016-11-21,2017-01-20,E1,181.0,Platalea regia,,28,14.0,,,,2016-11-21,2016,11,2017
+Murrumbidgee River,Eulimbah Swamp,Murrumbidgee River>,-34.559629,144.185472,2020-11-25 00:00:00,2020-10-30,2021-02-02,E1,180.0,Threskiornis spinicollis,3.0,30440,15220.0,28.0,,mixed species colony total 3ha,2020-11-25,2020,11,2021
+Murrumbidgee River,Eulimbah Swamp,Murrumbidgee River>,-34.559629,144.185472,2020-11-25 00:00:00,2020-10-30,2021-02-02,E1,178.0,Plegadis falcinellus,3.0,6686,3343.0,39.0,,mixed species colony total 3ha,2020-11-25,2020,11,2021
+Murrumbidgee River,Eulimbah Swamp,Murrumbidgee River>,-34.559629,144.185472,2021-12-02 00:00:00,2021-10-29,2022-01-12,E1,180.0,Threskiornis spinicollis,13.1,9608,10500.0,54.0,,,2021-12-02,2021,12,2022
+Murrumbidgee River,Telephone Creek,Murrumbidgee River>,-34.513983,144.024797,2021-12-17 00:00:00,2021-11-02,2022-01-12,E1,181.0,Platalea (platalea),21.2,20,,,,,2021-12-17,2021,12,2022
+Murrumbidgee River,Telephone Creek,Murrumbidgee River>,-34.513983,144.024797,2021-12-17 00:00:00,2021-11-02,2022-01-12,E1,,Unidentified egret,21.2,232,,,,,2021-12-17,2021,12,2022
+Murrumbidgee River,Telephone Creek,Murrumbidgee River>,-34.513983,144.024797,2021-12-17 00:00:00,2021-11-02,2022-01-12,E1,180.0,Threskiornis spinicollis,21.2,8342,,,,,2021-12-17,2021,12,2022
+Murrumbidgee River,Tori Swamp,Murrumbidgee River> known as Tori Lignum Swamp,-34.373284,143.719779,2017-01-06 00:00:00,2016-12-01,2017-03-17,E1,180.0,Threskiornis spinicollis,160.0,706,353.0,39.74,,,2017-01-06,2017,1,2017
+Murrumbidgee River,Tori Swamp,Murrumbidgee River> known as Tori Lignum Swamp,-34.373284,143.719779,2017-01-06 00:00:00,2016-12-01,2017-03-17,E1,179.0,Threskiornis molucca,,4,2.0,,,,2017-01-06,2017,1,2017
+Murrumbidgee River,Tori Swamp,Murrumbidgee River> known as Tori Lignum Swamp,-34.373284,143.719779,2017-01-06 00:00:00,2016-12-01,2017-03-17,E1,178.0,Plegadis falcinellus,,22,11.0,,,,2017-01-06,2017,1,2017
+Lachlan River System,UPME,Lachlan River System>Upper Merrimajeel Creek,-33.751776,144.891069,2016-10-12 00:00:00,2016-08-26,2016-11-30,E1,180.0,Threskiornis spinicollis,68.0,200000,100000.0,83.32,low,,2016-10-12,2016,10,2017

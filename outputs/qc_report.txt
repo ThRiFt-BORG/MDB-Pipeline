@@ -1,0 +1,55 @@
+=== STAGE 01: INGEST ===
+  [ok] S1: 12,773 rows x 16 cols
+       High-null cols (>30%): {'Comments': 82.2}
+  [ok] S2: 15 rows x 17 cols
+       High-null cols (>30%): {'breedingSuccessRateColony': 46.7, 'disturbanceColony': 86.7, 'comment': 86.7}
+  [ok] S3: 39,273 rows x 29 cols
+       High-null cols (>30%): {'Time': 48.0, 'Subwetno': 43.4, 'Aggregate': 94.3, 'NotSurveyed': 99.5, 'Complex': 50.0}
+  [ok] S4: 155,297 rows x 21 cols
+       High-null cols (>30%): {'Survey_Wetland_Area': 38.0}
+
+Total records across all sources: 207,358
+
+=== STAGE 02: CLEAN ===
+  S1 spatial: removed 7 invalid coords (lat range seen: -34.74 to 145.43)
+  S1 clean: 12,766 rows retained
+  S2 clean: 15 rows retained
+  S3 spatial: removed 122 invalid coords (lat range seen: -149.37 to -13.27)
+  S3 clean: 39,151 rows retained
+  S4 spatial: removed 1438 invalid coords (lat range seen: -43.59 to -10.58)
+  S4 clean: 153,859 rows retained
+
+=== STAGE 03: HARMONISE ===
+  S1: 12,766 rows -> unified schema
+  S2: 15 rows -> unified schema
+  S3: 39,151 rows -> unified schema
+  S4: 153,859 rows -> unified schema
+
+=== STAGE 04: MERGE ===
+  Pre-dedup total: 205,791 rows
+  Pass 1 - within-S4 dual-pass dedup: removed 10,064 rows (kept max abundance per exact lat/lon/year/species)
+  Pass 2 - cross-source coord dedup (S3/S4): removed 21,023 rows
+  Post-dedup total: 174,704 rows
+  MDB scope: 41,480 records outside MDB bbox flagged mdb_scope=False (incl. 16,662 S4-2008 continent-wide records)
+  Year range (MDB):  1983 - 2025
+  Species (MDB):     183 unique
+  Sites (MDB):       2,555 unique
+  Per source (all):  {'S1': 12766, 'S2': 15, 'S3': 27221, 'S4': 134702}
+  Per source (MDB):  {'S1': 12766, 'S2': 15, 'S3': 27165, 'S4': 93278}
+  S4 MDB annual totals 2007-2012 (spike check):
+    2007: 393,124
+    2008: 793,184
+    2009: 571,406
+    2010: 499,712  <- real La Nina flood
+    2011: 742,128  <- real La Nina flood
+    2012: 969,266  <- real La Nina flood
+  Saved -> E:\mdb_waterbird_pipeline\mdb_pipeline\data\harmonised\mdb_waterbirds_master.parquet
+  Saved -> E:\mdb_waterbird_pipeline\mdb_pipeline\data\harmonised\mdb_waterbirds_master.csv
+
+=== STAGE 05: SITE FILTER ===
+  Macquarie Marshes: 2,880 records, 1983-2025, 62 species
+  Gwydir Wetlands:   11,193 records, 1983-2025, 144 species
+  Full MDB:          102,193 records, 1983-2025, 174 species [clip: shapefile polygon, 16,662 S4-2008 out-of-basin excluded]
+
+=== STAGE 06: EDA PLOTS ===
+  All plots saved to outputs/
