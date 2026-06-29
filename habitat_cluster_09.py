@@ -58,6 +58,11 @@ DEFAULT_SHAPEFILES = [
     ROOT / "data" / "mdb_boundary.shp",
     ROOT / "src"  / "mdb_boundary.shp",
 ]
+try:
+    from src.config_00 import MDB_SHAPEFILE as _CFG_SHP
+    DEFAULT_SHAPEFILES.insert(0, _CFG_SHP)
+except Exception:
+    pass
 
 # MDB bounding box fallback
 MDB_BBOX = {"lat": (-37.6, -23.0), "lon": (138.0, 153.1)}
@@ -253,7 +258,7 @@ def run_dbscan(coords_df: pd.DataFrame,
     coords_df = coords_df.copy()
     coords_df["cluster_id"] = labels  # -1 = noise
 
-    n_clusters = int((labels >= 0).sum() > 0) and labels.max() + 1
+    n_clusters = labels.max() + 1 if (labels >= 0).any() else 0
     n_noise    = (labels == -1).sum()
     print(f"  DBSCAN (ε={epsilon_km} km, min_samples={min_samples})")
     print(f"    Clusters formed : {n_clusters}")

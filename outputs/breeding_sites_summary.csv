@@ -1,0 +1,31 @@
+site_name,scientific_name,common_name,total_abundance,total_nests,n_breeding_records,n_years,mean_percent_full
+Lake Alexandrina,Cygnus atratus,Black Swan,4975,23,3,3,100.0
+Lake Alexandrina,Phalacrocorax carbo,Great cormorant,12236,2900,2,2,100.0
+Lake Alexandrina,Threskiornis spinicollis,Straw-necked Ibis,11616,15366,5,5,100.0
+Lake Alexandrina,Phalacrocorax varius,Pied Cormorant,8095,4310,4,4,100.0
+Lake Alexandrina,Anseranas semipalmata,Magpie Goose,0,0,0,0,100.0
+Lake Alexandrina,Pelecanus conspicillatus,Pelican,0,0,0,0,100.0
+Lake Wyara,Cygnus atratus,Black Swan,14541,22,1,1,70.0
+Lake Wyara,Phalacrocorax carbo,Great cormorant,0,0,0,0,70.0
+Lake Wyara,Threskiornis spinicollis,Straw-necked Ibis,0,0,0,0,70.0
+Lake Wyara,Phalacrocorax varius,Pied Cormorant,0,0,0,0,70.0
+Lake Wyara,Anseranas semipalmata,Magpie Goose,0,0,0,0,70.0
+Lake Wyara,Pelecanus conspicillatus,Pelican,539,122,1,1,70.0
+Coorong South Lagoon,Cygnus atratus,Black Swan,0,0,0,0,93.8
+Coorong South Lagoon,Phalacrocorax carbo,Great cormorant,0,0,0,0,93.8
+Coorong South Lagoon,Threskiornis spinicollis,Straw-necked Ibis,0,0,0,0,93.8
+Coorong South Lagoon,Phalacrocorax varius,Pied Cormorant,0,0,0,0,93.8
+Coorong South Lagoon,Anseranas semipalmata,Magpie Goose,0,0,0,0,93.8
+Coorong South Lagoon,Pelecanus conspicillatus,Pelican,4195,4989,5,5,93.8
+Macquarie Marshes,Cygnus atratus,Black Swan,644,99,1,1,66.9
+Macquarie Marshes,Phalacrocorax carbo,Great cormorant,0,0,0,0,66.9
+Macquarie Marshes,Threskiornis spinicollis,Straw-necked Ibis,0,0,0,0,66.9
+Macquarie Marshes,Phalacrocorax varius,Pied Cormorant,0,0,0,0,66.9
+Macquarie Marshes,Anseranas semipalmata,Magpie Goose,7182,100,2,2,66.9
+Macquarie Marshes,Pelecanus conspicillatus,Pelican,0,0,0,0,66.9
+Lake Brewster,Cygnus atratus,Black Swan,2500,1,1,1,93.3
+Lake Brewster,Phalacrocorax carbo,Great cormorant,0,0,0,0,93.3
+Lake Brewster,Threskiornis spinicollis,Straw-necked Ibis,0,0,0,0,93.3
+Lake Brewster,Phalacrocorax varius,Pied Cormorant,0,0,0,0,93.3
+Lake Brewster,Anseranas semipalmata,Magpie Goose,0,0,0,0,93.3
+Lake Brewster,Pelecanus conspicillatus,Pelican,759,582,2,2,93.3

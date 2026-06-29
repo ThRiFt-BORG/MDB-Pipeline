@@ -66,6 +66,12 @@ DEFAULT_SHAPEFILES = [
     ROOT / "data" / "mdb_boundary.shp",
 ]
 
+try:
+    from src.config_00 import MDB_SHAPEFILE as _CFG_SHP
+    DEFAULT_SHAPEFILES.insert(0, _CFG_SHP)
+except Exception:
+    pass
+
 S2_FILES = [
     "clusters_sentinel2_2016_2017.csv",
     "clusters_sentinel2_2018_2019.csv",
@@ -283,20 +289,22 @@ def engineer_features(panel: pd.DataFrame) -> pd.DataFrame:
 # Step 3 — Random Forest suitability model
 # ---------------------------------------------------------------------------
 
-FEATURES = ["NDVI", "NDWI", "EVI", "n_points", "n_species",
-            "n_years", "extent_km", "ndvi_zscore", "score_stability"]
+FEATURES = ["NDVI", "NDWI", "EVI",
+            "extent_km", "ndvi_zscore", "score_stability"]
 
 def train_model(panel: pd.DataFrame) -> tuple:
     print("  Training Random Forest habitat suitability model …")
 
     # Use mean across years per cluster for a stable static model
-    cluster_mean = panel.groupby("cluster_id")[FEATURES + ["habitat_score"]] \
+    cluster_mean = panel.groupby("cluster_id")[FEATURES + ["total_abundance"]] \
         .mean().reset_index()
-    cluster_mean = cluster_mean.dropna(subset=FEATURES + ["habitat_score"])
+    cluster_mean = cluster_mean.dropna(subset=FEATURES + ["total_abundance"])
 
     X = cluster_mean[FEATURES].to_numpy(dtype=float)
-    y = cluster_mean["habitat_score"].to_numpy(dtype=float)
-
+    y = np.log1p(
+        (cluster_mean["total_abundance"] / cluster_mean["extent_km"].clip(lower=0.1))
+        .to_numpy(dtype=float)
+    )
     rf = RandomForestRegressor(
         n_estimators=300,
         max_depth=8,
@@ -312,7 +320,9 @@ def train_model(panel: pd.DataFrame) -> tuple:
     print(f"    CV R² = {cvr2.mean():.3f} ± {cvr2.std():.3f}")
 
     # Predict suitability for all clusters (mean features)
-    cluster_mean["predicted_suitability"] = rf.predict(X)
+    raw_pred = rf.predict(X)
+    pmin, pmax = raw_pred.min(), raw_pred.max()
+    cluster_mean["predicted_suitability"] = (raw_pred - pmin) / (pmax - pmin + 1e-9)
 
     # Permutation importance for interpretability
     perm_result = permutation_importance(rf, X, y, n_repeats=20, random_state=42)
@@ -550,7 +560,7 @@ def fig_feature_importance(importance_df: pd.DataFrame, cvr2: np.ndarray):
     importance_df = importance_df.sort_values("importance", ascending=True)
 
     fig, ax = plt.subplots(figsize=(12, 7), facecolor=LIGHT_GREY)
-
+    ax.set_facecolor(DARK_GREY)
     colors = ["#E31A1C" if imp > importance_df["importance"].median()
               else "#1F78B4"
               for imp in importance_df["importance"]]
