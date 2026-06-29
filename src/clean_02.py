@@ -114,8 +114,14 @@ def clean_s3(df: pd.DataFrame, log: list) -> pd.DataFrame:
     for col in ["SumOfCount", "SumOfNests", "SumOfBroods"]:
         df = _count_qc(df, col, log, sid)
     df["PercentFilled"] = pd.to_numeric(df["PercentFilled"], errors="coerce").clip(0, 100)
-    df["SurveyArea"]  = pd.to_numeric(df.get("SurveyArea"),  errors="coerce")
-    df["WetlandArea"] = pd.to_numeric(df.get("WetlandArea"), errors="coerce")
+    df["SurveyArea"]  = pd.to_numeric(
+        df["SurveyArea"] if "SurveyArea" in df else pd.Series(index=df.index),
+        errors="coerce"
+    )
+    df["WetlandArea"] = pd.to_numeric(
+        df["WetlandArea"] if "WetlandArea" in df else pd.Series(index=df.index),
+        errors="coerce"
+    )
     df["prop_surveyed"] = (df["SurveyArea"] / df["WetlandArea"]).clip(0, 1)
     log.append(f"  {sid} clean: {len(df):,} rows retained")
     return df
@@ -138,8 +144,14 @@ def clean_s4(df: pd.DataFrame, log: list) -> pd.DataFrame:
     for col in ["Sum_of_count", "Sum_of_nests", "Sum_of_broods"]:
         df = _count_qc(df, col, log, sid)
     df["Percent_full"] = pd.to_numeric(df["Percent_full"], errors="coerce").clip(0, 100)
-    df["Survey_Wetland_Area"] = pd.to_numeric(df.get("Survey_Wetland_Area"), errors="coerce")
-    df["Wetland_Area"]        = pd.to_numeric(df.get("Wetland_Area"),        errors="coerce")
+    df["Survey_Wetland_Area"] = pd.to_numeric(
+        df["Survey_Wetland_Area"] if "Survey_Wetland_Area" in df else pd.Series(index=df.index),
+        errors="coerce"
+    )
+    df["Wetland_Area"] = pd.to_numeric(
+        df["Wetland_Area"] if "Wetland_Area" in df else pd.Series(index=df.index),
+        errors="coerce"
+    )
     df["prop_surveyed"] = (df["Survey_Wetland_Area"] / df["Wetland_Area"]).clip(0, 1)
     log.append(f"  {sid} clean: {len(df):,} rows retained")
     return df
